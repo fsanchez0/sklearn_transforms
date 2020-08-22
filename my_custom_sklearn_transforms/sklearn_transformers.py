@@ -1,7 +1,7 @@
 from sklearn.base import BaseEstimator, TransformerMixin
 
 
-# All sklearn Transforms must have the `transform` and `fit` methods
+# Deben tener fit y transform
 class DropColumns(BaseEstimator, TransformerMixin):
     def __init__(self, columns):
         self.columns = columns
@@ -10,7 +10,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X):
-        # Primeiro realizamos a cópia do dataframe 'X' de entrada
+        # Primeiro realizamos copia del dataframe 'X' de entrada
         data = X.copy()
-        # Retornamos um novo dataframe sem as colunas indesejadas
-        return data.drop(labels=self.columns, axis='columns')
+        # Retornamos un nuevo dataframe de las columnas
+        return data.drop(labels=self.columns, axis='columns', inplace=True)
