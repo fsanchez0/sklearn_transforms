@@ -28,3 +28,17 @@ class DropNa(BaseEstimator, TransformerMixin):
         data = X.copy()
         # Devolvemos un nuevo dataframe de datos sin los nulos
         return data.dropna()
+    
+    
+class Raveel(BaseEstimator, TransformerMixin):
+    def __init__(self):
+        print("Instanciada 2!")
+
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X):
+        # Primero copiamos el dataframe de datos de entrada 'X'
+        data = X.copy()
+        # Devolvemos un nuevo dataframe de datos sin los nulos
+        return data.values.ravel()
